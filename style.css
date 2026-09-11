@@ -141,13 +141,15 @@ header {
 }
 
 .svc-icon-box {
-  width: 90px;
-  height: 90px;
+  width: 100%;
+  height: 100%;
+  min-height: 200px;
   border: 1px solid var(--gold);
   display: flex;
   align-items: center;
   justify-content: center;
   background: var(--ink);
+  overflow: hidden;
 }
 
 .svc-text .num {
