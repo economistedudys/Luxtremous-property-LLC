@@ -368,6 +368,9 @@ header {
 
 .hero-photo img {
   width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center 15%;
   border-radius: 2px;
   box-shadow: 0 30px 60px -20px rgba(26,26,26,0.35);
 }
