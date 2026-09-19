@@ -23,6 +23,7 @@
       <a href="profile.html">Profile</a>
       <a href="careers.html" class="active">Careers</a>
       <a href="about.html">About</a>
+      <a href="login.html" class="nav-login"><svg class="nav-login-icon" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><circle cx="32" cy="22" r="12"/><path d="M10 56c3-14 14-22 22-22s19 8 22 22"/></svg><span>Login</span></a>
       <a href="contact.html" class="nav-cta">Get in Touch</a>
     </nav>
     <button class="burger">MENU</button>
@@ -33,6 +34,7 @@
     <a href="profile.html">Profile</a>
     <a href="careers.html">Careers</a>
     <a href="about.html">About</a>
+    <a href="login.html" class="nav-login">Login</a>
     <a href="contact.html">Get in Touch</a>
   </div>
 </header>
@@ -164,6 +166,32 @@
       }
       heading.textContent = 'Apply: ' + role;
     }
+  })();
+
+  // If a candidate is signed in, pre-fill their details and log the
+  // application to their "Jobs Applied" list on the candidate portal.
+  (function () {
+    var candidateRaw = localStorage.getItem('lux_candidate');
+    var profileRaw = localStorage.getItem('lux_profile');
+    if (candidateRaw) {
+      var candidate = JSON.parse(candidateRaw);
+      var profile = profileRaw ? JSON.parse(profileRaw) : {};
+      var fullName = ((profile.firstName || candidate.firstName || '') + ' ' + (profile.lastName || candidate.lastName || '')).trim();
+      if (fullName) document.getElementById('fullname').value = fullName;
+      if (profile.email || candidate.email) document.getElementById('email').value = profile.email || candidate.email;
+      if (profile.phone || candidate.phone) document.getElementById('phone').value = profile.phone || candidate.phone;
+    }
+
+    document.getElementById('apply-form').addEventListener('submit', function () {
+      if (!localStorage.getItem('lux_candidate')) return; // only track for signed-in candidates
+      var applications = JSON.parse(localStorage.getItem('lux_applications') || '[]');
+      applications.push({
+        role: document.getElementById('position').value,
+        date: new Date().toLocaleDateString(),
+        status: 'Submitted'
+      });
+      localStorage.setItem('lux_applications', JSON.stringify(applications));
+    });
   })();
 </script>
 </body>

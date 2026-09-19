@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Candidate Profile — Luxtremous Property LLC</title>
+<meta name="description" content="Manage your candidate profile, documents, and applications with Luxtremous Property LLC.">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" type="image/svg+xml" href="logo.svg">
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a href="index.html" class="brand">
+      <img src="logo.svg" alt="Luxtremous Property LLC logo" class="brand-logo">
+      <span class="brand-mark">Luxtremous<span>.</span></span>
+      <span class="brand-sub">Property LLC</span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="profile.html">Profile</a>
+      <a href="careers.html">Careers</a>
+      <a href="about.html">About</a>
+      <a href="candidate-profile.html" class="nav-login active"><svg class="nav-login-icon" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><circle cx="32" cy="22" r="12"/><path d="M10 56c3-14 14-22 22-22s19 8 22 22"/></svg><span>My Profile</span></a>
+      <a href="contact.html" class="nav-cta">Get in Touch</a>
+    </nav>
+    <button class="burger">MENU</button>
+  </div>
+  <div class="mobile-menu">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="profile.html">Profile</a>
+    <a href="careers.html">Careers</a>
+    <a href="about.html">About</a>
+    <a href="candidate-profile.html" class="nav-login active">My Profile</a>
+  </div>
+</header>
+
+<section class="page-hero" style="padding-bottom: 0; border-bottom:none;">
+  <div class="wrap reveal">
+    <span class="eyebrow">Candidate Portal</span>
+    <h1>Your Candidate Profile</h1>
+    <p>Keep your documents, contact details, and work history up to date. This carries over automatically the next time you apply.</p>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="profile-hero reveal">
+    <div class="avatar-circle" id="avatar-circle">DA</div>
+    <div style="flex:1; min-width:200px;">
+      <h2 id="profile-name" style="font-size:1.5rem; margin-bottom:4px;">Candidate</h2>
+      <p id="profile-email" style="opacity:0.65; margin:0; font-size:0.95rem;"></p>
+    </div>
+    <button id="logout-btn" class="btn btn-ghost" style="cursor:pointer;">Log Out</button>
+  </div>
+</section>
+
+<section class="pad" style="padding-top: 24px;">
+  <div class="wrap">
+
+    <div id="save-toast" class="form-msg success" style="margin-bottom:22px;"></div>
+
+    <!-- ================= MY DOCUMENTS ================= -->
+    <div class="dash-section reveal">
+      <div class="dash-head"><h3>My Documents</h3><span class="chevron"></span></div>
+      <div class="dash-body">
+        <p class="dash-hint">Accepted file types: DOCX, PDF, image, and text (MSG, RTF, and XLS files are not accepted for resumes or cover letters).</p>
+        <div class="doc-grid">
+          <label class="doc-tile" id="tile-resume">
+            <svg class="doc-icon" viewBox="0 0 64 64"><path d="M16 8h24l12 12v36H16z"/><path d="M40 8v12h12"/></svg>
+            <div class="doc-label">Resume</div>
+            <div class="doc-filename" id="resume-filename">No file attached</div>
+            <input type="file" id="resume-input" accept=".pdf,.doc,.docx,.txt,image/*">
+          </label>
+          <label class="doc-tile" id="tile-cover">
+            <svg class="doc-icon" viewBox="0 0 64 64"><path d="M16 8h24l12 12v36H16z"/><path d="M40 8v12h12"/></svg>
+            <div class="doc-label">Cover Letter</div>
+            <div class="doc-filename" id="cover-filename">No file attached</div>
+            <input type="file" id="cover-input" accept=".pdf,.doc,.docx,.txt,image/*">
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= PROFILE INFORMATION ================= -->
+    <div class="dash-section reveal">
+      <div class="dash-head"><h3>Profile Information</h3><span class="chevron"></span></div>
+      <div class="dash-body">
+        <div class="field-row cols-3">
+          <div class="field"><label for="pf-first">Legal First Name *</label><input type="text" id="pf-first" required></div>
+          <div class="field"><label for="pf-middle">Middle Name</label><input type="text" id="pf-middle"></div>
+          <div class="field"><label for="pf-last">Legal Last Name *</label><input type="text" id="pf-last" required></div>
+        </div>
+        <div class="field-row cols-2">
+          <div class="field"><label for="pf-email">Email Address *</label><input type="email" id="pf-email" required></div>
+          <div class="field"><label for="pf-phone">Primary Phone *</label><input type="tel" id="pf-phone" required></div>
+        </div>
+        <div class="field-row cols-2">
+          <div class="field"><label for="pf-alt-phone">Alternate Phone</label><input type="tel" id="pf-alt-phone"></div>
+          <div class="field"><label for="pf-country">Country</label>
+            <select id="pf-country">
+              <option>United States</option>
+              <option>Canada</option>
+              <option>Haiti</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="field"><label for="pf-street">Street Address</label><input type="text" id="pf-street"></div>
+        <div class="field"><label for="pf-street2">Address Line 2</label><input type="text" id="pf-street2"></div>
+        <div class="field-row cols-3">
+          <div class="field"><label for="pf-city">City *</label><input type="text" id="pf-city" required></div>
+          <div class="field"><label for="pf-state">State</label><input type="text" id="pf-state" placeholder="e.g. FL"></div>
+          <div class="field"><label for="pf-zip">Zip Code</label><input type="text" id="pf-zip"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= SEARCH OPTIONS & PRIVACY ================= -->
+    <div class="dash-section reveal">
+      <div class="dash-head"><h3>Search Options and Privacy</h3><span class="chevron"></span></div>
+      <div class="dash-body">
+        <label class="checkbox-row">
+          <input type="checkbox" id="pf-searchable" checked>
+          <span>Show my candidate profile to recruiters when they search internally for future openings.</span>
+        </label>
+        <p style="margin-top:16px;"><a href="contact.html" style="text-decoration:underline; font-size:0.9rem;">View Our Privacy Statement</a></p>
+      </div>
+    </div>
+
+    <!-- ================= JOBS APPLIED ================= -->
+    <div class="dash-section reveal">
+      <div class="dash-head"><h3>Jobs Applied</h3><span class="chevron"></span></div>
+      <div class="dash-body">
+        <div id="applied-jobs" class="applied-grid"></div>
+      </div>
+    </div>
+
+    <!-- ================= SAVED APPLICATIONS ================= -->
+    <div class="dash-section collapsed reveal">
+      <div class="dash-head"><h3>Saved Applications</h3><span class="chevron"></span></div>
+      <div class="dash-body">
+        <div class="empty-state">You have no saved applications.</div>
+      </div>
+    </div>
+
+    <!-- ================= PREVIOUS EMPLOYMENT ================= -->
+    <div class="dash-section reveal">
+      <div class="dash-head"><h3>Previous Employment</h3><span class="chevron"></span></div>
+      <div class="dash-body">
+        <p class="dash-hint">If you are still working in a position, use today's date as the end date.</p>
+        <div id="employment-list"></div>
+        <button type="button" class="btn-add" id="add-employment">+ Add Employment</button>
+      </div>
+    </div>
+
+    <!-- ================= FORMAL EDUCATION ================= -->
+    <div class="dash-section reveal">
+      <div class="dash-head"><h3>Formal Education</h3><span class="chevron"></span></div>
+      <div class="dash-body">
+        <div id="education-list"></div>
+        <button type="button" class="btn-add" id="add-education">+ Add Education</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="wrap save-bar">
+  <button type="button" class="btn btn-ghost" id="cancel-btn" style="cursor:pointer;">Reset Changes</button>
+  <button type="button" class="btn btn-primary" id="save-btn" style="border:none; cursor:pointer;">Save Profile</button>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h4>Luxtremous Property LLC</h4>
+        <p>Real estate &amp; business solutions — real estate, call center, interpretation, sales, and bookkeeping.</p>
+      </div>
+      <div>
+        <h4>Navigation</h4>
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="profile.html">Profile</a>
+        <a href="careers.html">Careers</a>
+        <a href="about.html">About</a>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <a href="mailto:contact@luxtremousproperty.com">contact@luxtremousproperty.com</a>
+        <a href="tel:+14074369503">+1 (407) 436-9503</a>
+        <p>By appointment</p>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Luxtremous Property LLC</span>
+      <span>All rights reserved</span>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+(function () {
+  var candidateRaw = localStorage.getItem('lux_candidate');
+  if (!candidateRaw) { window.location.href = 'login.html'; return; }
+  var candidate = JSON.parse(candidateRaw);
+
+  var profile = JSON.parse(localStorage.getItem('lux_profile') || '{}');
+  var employment = JSON.parse(localStorage.getItem('lux_employment') || '[]');
+  var education = JSON.parse(localStorage.getItem('lux_education') || '[]');
+  var applications = JSON.parse(localStorage.getItem('lux_applications') || '[]');
+  var docs = JSON.parse(localStorage.getItem('lux_documents') || '{}');
+
+  if (!profile.firstName) profile.firstName = candidate.firstName || '';
+  if (!profile.lastName) profile.lastName = candidate.lastName || '';
+  if (!profile.email) profile.email = candidate.email || '';
+  if (!profile.phone) profile.phone = candidate.phone || '';
+
+  // ---- Header ----
+  var fullName = (profile.firstName + ' ' + profile.lastName).trim() || 'Candidate';
+  document.getElementById('profile-name').textContent = fullName;
+  document.getElementById('profile-email').textContent = profile.email || candidate.email || '';
+  var initials = ((profile.firstName || 'C')[0] + (profile.lastName || 'A')[0]).toUpperCase();
+  document.getElementById('avatar-circle').textContent = initials;
+
+  // ---- Profile Information fields ----
+  var map = {
+    'pf-first': 'firstName', 'pf-middle': 'middleName', 'pf-last': 'lastName',
+    'pf-email': 'email', 'pf-phone': 'phone', 'pf-alt-phone': 'altPhone',
+    'pf-country': 'country', 'pf-street': 'street', 'pf-street2': 'street2',
+    'pf-city': 'city', 'pf-state': 'state', 'pf-zip': 'zip'
+  };
+  Object.keys(map).forEach(function (id) {
+    var el = document.getElementById(id);
+    if (profile[map[id]]) el.value = profile[map[id]];
+  });
+  document.getElementById('pf-searchable').checked = profile.searchable !== false;
+
+  // ---- Documents ----
+  function renderDoc(kind) {
+    var name = docs[kind];
+    var tile = document.getElementById('tile-' + kind);
+    var label = document.getElementById(kind + '-filename');
+    label.textContent = name ? name : 'No file attached';
+    tile.classList.toggle('has-file', !!name);
+  }
+  renderDoc('resume'); renderDoc('cover');
+
+  document.getElementById('resume-input').addEventListener('change', function (e) {
+    if (e.target.files[0]) { docs.resume = e.target.files[0].name; renderDoc('resume'); }
+  });
+  document.getElementById('cover-input').addEventListener('change', function (e) {
+    if (e.target.files[0]) { docs.cover = e.target.files[0].name; renderDoc('cover'); }
+  });
+
+  // ---- Jobs Applied ----
+  var appliedWrap = document.getElementById('applied-jobs');
+  function renderApplications() {
+    appliedWrap.innerHTML = '';
+    if (!applications.length) {
+      appliedWrap.innerHTML = '<div class="empty-state" style="grid-column:1/-1;">You haven\'t applied to any positions yet. Visit our <a href="careers.html" style="text-decoration:underline;">Careers page</a> to get started.</div>';
+      return;
+    }
+    applications.slice().reverse().forEach(function (app) {
+      var card = document.createElement('div');
+      card.className = 'applied-card';
+      card.innerHTML = '<h4>' + app.role + '</h4>' +
+        '<div class="meta-line">Applied ' + app.date + '</div>' +
+        '<span class="status">' + (app.status || 'Submitted') + '</span>';
+      appliedWrap.appendChild(card);
+    });
+  }
+  renderApplications();
+
+  // ---- Previous Employment ----
+  var empList = document.getElementById('employment-list');
+  function employmentRowHtml(entry, idx) {
+    entry = entry || {};
+    return '<div class="entry-row" data-idx="' + idx + '">' +
+      '<button type="button" class="entry-remove">Remove</button>' +
+      '<div class="field-row cols-3">' +
+        '<div class="field"><label>Start Date</label><input type="date" class="emp-start" value="' + (entry.start || '') + '"></div>' +
+        '<div class="field"><label>End Date</label><input type="date" class="emp-end" value="' + (entry.end || '') + '"></div>' +
+        '<div class="field"><label>Company Name</label><input type="text" class="emp-company" value="' + (entry.company || '') + '"></div>' +
+      '</div>' +
+      '<div class="field-row cols-2">' +
+        '<div class="field"><label>Job Title</label><input type="text" class="emp-title" value="' + (entry.title || '') + '"></div>' +
+        '<div class="field"><label>Type of Business</label><input type="text" class="emp-type" value="' + (entry.type || '') + '"></div>' +
+      '</div>' +
+    '</div>';
+  }
+  function renderEmployment() {
+    if (!employment.length) employment = [{}];
+    empList.innerHTML = employment.map(employmentRowHtml).join('');
+    bindRemove(empList, employment, renderEmployment);
+  }
+  renderEmployment();
+  document.getElementById('add-employment').addEventListener('click', function () {
+    employment.push({});
+    renderEmployment();
+  });
+
+  // ---- Formal Education ----
+  var eduList = document.getElementById('education-list');
+  function educationRowHtml(entry, idx) {
+    entry = entry || {};
+    return '<div class="entry-row" data-idx="' + idx + '">' +
+      '<button type="button" class="entry-remove">Remove</button>' +
+      '<div class="field"><label>School Name</label><input type="text" class="edu-school" value="' + (entry.school || '') + '"></div>' +
+      '<div class="field-row cols-2">' +
+        '<div class="field"><label>Degree</label><input type="text" class="edu-degree" value="' + (entry.degree || '') + '"></div>' +
+        '<div class="field"><label>Field of Study</label><input type="text" class="edu-field" value="' + (entry.field || '') + '"></div>' +
+      '</div>' +
+      '<div class="field-row cols-2">' +
+        '<div class="field"><label>Start Date</label><input type="date" class="edu-start" value="' + (entry.start || '') + '"></div>' +
+        '<div class="field"><label>End Date</label><input type="date" class="edu-end" value="' + (entry.end || '') + '"></div>' +
+      '</div>' +
+    '</div>';
+  }
+  function renderEducation() {
+    if (!education.length) education = [{}];
+    eduList.innerHTML = education.map(educationRowHtml).join('');
+    bindRemove(eduList, education, renderEducation);
+  }
+  renderEducation();
+  document.getElementById('add-education').addEventListener('click', function () {
+    education.push({});
+    renderEducation();
+  });
+
+  function bindRemove(container, arr, rerender) {
+    container.querySelectorAll('.entry-remove').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var idx = parseInt(btn.closest('.entry-row').dataset.idx, 10);
+        arr.splice(idx, 1);
+        rerender();
+      });
+    });
+  }
+
+  // ---- Collapsible sections ----
+  document.querySelectorAll('.dash-head').forEach(function (head) {
+    head.addEventListener('click', function () {
+      head.closest('.dash-section').classList.toggle('collapsed');
+    });
+  });
+
+  // ---- Save ----
+  function collectEmployment() {
+    return Array.prototype.map.call(empList.querySelectorAll('.entry-row'), function (row) {
+      return {
+        start: row.querySelector('.emp-start').value,
+        end: row.querySelector('.emp-end').value,
+        company: row.querySelector('.emp-company').value,
+        title: row.querySelector('.emp-title').value,
+        type: row.querySelector('.emp-type').value
+      };
+    });
+  }
+  function collectEducation() {
+    return Array.prototype.map.call(eduList.querySelectorAll('.entry-row'), function (row) {
+      return {
+        school: row.querySelector('.edu-school').value,
+        degree: row.querySelector('.edu-degree').value,
+        field: row.querySelector('.edu-field').value,
+        start: row.querySelector('.edu-start').value,
+        end: row.querySelector('.edu-end').value
+      };
+    });
+  }
+
+  document.getElementById('save-btn').addEventListener('click', function () {
+    Object.keys(map).forEach(function (id) {
+      profile[map[id]] = document.getElementById(id).value;
+    });
+    profile.searchable = document.getElementById('pf-searchable').checked;
+    employment = collectEmployment();
+    education = collectEducation();
+
+    localStorage.setItem('lux_profile', JSON.stringify(profile));
+    localStorage.setItem('lux_employment', JSON.stringify(employment));
+    localStorage.setItem('lux_education', JSON.stringify(education));
+    localStorage.setItem('lux_documents', JSON.stringify(docs));
+
+    var fullName2 = (profile.firstName + ' ' + profile.lastName).trim() || 'Candidate';
+    document.getElementById('profile-name').textContent = fullName2;
+    document.getElementById('profile-email').textContent = profile.email;
+
+    var toast = document.getElementById('save-toast');
+    toast.textContent = 'Your profile has been saved.';
+    toast.classList.add('show');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setTimeout(function () { toast.classList.remove('show'); }, 3000);
+  });
+
+  document.getElementById('cancel-btn').addEventListener('click', function () {
+    window.location.reload();
+  });
+
+  document.getElementById('logout-btn').addEventListener('click', function () {
+    localStorage.removeItem('lux_candidate');
+    window.location.href = 'login.html';
+  });
+})();
+</script>
+</body>
+</html>

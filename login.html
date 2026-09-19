@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Candidate Sign In — Luxtremous Property LLC</title>
+<meta name="description" content="Sign in or create a candidate account to apply and track your applications with Luxtremous Property LLC.">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" type="image/svg+xml" href="logo.svg">
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a href="index.html" class="brand">
+      <img src="logo.svg" alt="Luxtremous Property LLC logo" class="brand-logo">
+      <span class="brand-mark">Luxtremous<span>.</span></span>
+      <span class="brand-sub">Property LLC</span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="profile.html">Profile</a>
+      <a href="careers.html">Careers</a>
+      <a href="about.html">About</a>
+      <a href="login.html" class="nav-login active"><svg class="nav-login-icon" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><circle cx="32" cy="22" r="12"/><path d="M10 56c3-14 14-22 22-22s19 8 22 22"/></svg><span>Login</span></a>
+      <a href="contact.html" class="nav-cta">Get in Touch</a>
+    </nav>
+    <button class="burger">MENU</button>
+  </div>
+  <div class="mobile-menu">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="profile.html">Profile</a>
+    <a href="careers.html">Careers</a>
+    <a href="about.html">About</a>
+    <a href="login.html" class="nav-login active">Login</a>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="wrap reveal">
+    <span class="eyebrow">Candidate Portal</span>
+    <h1>Career Opportunities: Sign In</h1>
+    <p>Sign in to pick up a saved application, check the status of the roles you've applied to, or create a candidate profile so we can reach you about new openings.</p>
+  </div>
+</section>
+
+<section class="pad">
+  <div class="wrap grid-2">
+
+    <div class="form-panel reveal">
+      <div class="auth-tabs">
+        <button type="button" class="auth-tab active" data-tab="signin">Sign In</button>
+        <button type="button" class="auth-tab" data-tab="create">Create Account</button>
+      </div>
+
+      <div id="form-msg" class="form-msg success"></div>
+
+      <!-- ===== SIGN IN ===== -->
+      <div class="auth-panel active" id="panel-signin">
+        <form id="signin-form">
+          <div class="field">
+            <label for="si-email">Email Address</label>
+            <input type="email" id="si-email" required placeholder="you@example.com">
+          </div>
+          <div class="field">
+            <label for="si-password">Password</label>
+            <div class="pw-wrap">
+              <input type="password" id="si-password" required minlength="4" placeholder="••••••••">
+              <button type="button" class="pw-toggle" data-target="si-password">Show</button>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%; border:none; cursor:pointer;">Sign In</button>
+          <p style="text-align:center; margin-top:16px;"><a href="#" style="text-decoration:underline; font-size:0.9rem;">Forgot your password?</a></p>
+        </form>
+        <p class="auth-note">Not a registered user yet? <a href="#" data-switch="create" style="text-decoration:underline; color:var(--ink);">Create an account</a> to apply for our career opportunities.</p>
+      </div>
+
+      <!-- ===== CREATE ACCOUNT ===== -->
+      <div class="auth-panel" id="panel-create">
+        <form id="create-form">
+          <div class="field-row cols-2">
+            <div class="field">
+              <label for="ca-first">First Name</label>
+              <input type="text" id="ca-first" required>
+            </div>
+            <div class="field">
+              <label for="ca-last">Last Name</label>
+              <input type="text" id="ca-last" required>
+            </div>
+          </div>
+          <div class="field">
+            <label for="ca-email">Email Address</label>
+            <input type="email" id="ca-email" required placeholder="you@example.com">
+          </div>
+          <div class="field">
+            <label for="ca-phone">Phone Number</label>
+            <input type="tel" id="ca-phone" placeholder="(___) ___-____">
+          </div>
+          <div class="field">
+            <label for="ca-password">Create Password</label>
+            <div class="pw-wrap">
+              <input type="password" id="ca-password" required minlength="4" placeholder="At least 4 characters">
+              <button type="button" class="pw-toggle" data-target="ca-password">Show</button>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%; border:none; cursor:pointer;">Create Account</button>
+        </form>
+        <p class="auth-note">Already have an account? <a href="#" data-switch="signin" style="text-decoration:underline; color:var(--ink);">Sign in instead</a>.</p>
+      </div>
+
+      <p class="auth-note" style="margin-top:22px; border-top:1px solid var(--line); padding-top:16px;">This is a candidate-portal preview: accounts and applications are saved only in this browser, not on a server, so nothing here is emailed or verified automatically.</p>
+    </div>
+
+    <div class="reveal">
+      <span class="eyebrow">Why Create a Profile</span>
+      <h2 style="margin: 10px 0 22px;">One profile, every application</h2>
+      <ul class="info-list">
+        <li><span class="tag">Apply Faster</span><span>Your contact details and resume carry over to every job you apply for.</span></li>
+        <li><span class="tag">Track Status</span><span>See every role you've applied to and where things stand, in one place.</span></li>
+        <li><span class="tag">Stay Ready</span><span>Keep your employment history and education on file for the next opening.</span></li>
+        <li><span class="tag">Job Alerts</span><span>Opt in below to hear about new openings that match your background.</span></li>
+      </ul>
+
+      <div class="alert-card">
+        <div>
+          <h3>Get Job Alerts</h3>
+          <p>Follow along on social media for new openings and hiring updates.</p>
+        </div>
+        <div class="social-row on-dark" style="margin-top:0;">
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M15 8.5h2V5h-2c-2.2 0-4 1.8-4 4v2.5H9V15h2v6h3v-6h2.4l.6-3.5H14V9c0-.3.2-.5.5-.5z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="4.5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r="0.8" fill="currentColor" stroke="none"/></svg></a>
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="2"/><line x1="7.5" y1="10.5" x2="7.5" y2="16.5"/><circle cx="7.5" cy="7.3" r="0.9" fill="currentColor" stroke="none"/><path d="M11 16.5v-6M11 12c0-1 1-2 2.3-2s2.2 1 2.2 2.5v4"/></svg></a>
+          <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24"><rect x="3" y="6.5" width="18" height="11" rx="3"/><path d="M10.5 9.8l4.5 2.2-4.5 2.2z" fill="currentColor" stroke="none"/></svg></a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h4>Luxtremous Property LLC</h4>
+        <p>Real estate &amp; business solutions — real estate, call center, interpretation, sales, and bookkeeping.</p>
+        <div class="social-row">
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M15 8.5h2V5h-2c-2.2 0-4 1.8-4 4v2.5H9V15h2v6h3v-6h2.4l.6-3.5H14V9c0-.3.2-.5.5-.5z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="4.5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r="0.8" fill="currentColor" stroke="none"/></svg></a>
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="2"/><line x1="7.5" y1="10.5" x2="7.5" y2="16.5"/><circle cx="7.5" cy="7.3" r="0.9" fill="currentColor" stroke="none"/><path d="M11 16.5v-6M11 12c0-1 1-2 2.3-2s2.2 1 2.2 2.5v4"/></svg></a>
+          <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24"><rect x="3" y="6.5" width="18" height="11" rx="3"/><path d="M10.5 9.8l4.5 2.2-4.5 2.2z" fill="currentColor" stroke="none"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h4>Navigation</h4>
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="profile.html">Profile</a>
+        <a href="careers.html">Careers</a>
+        <a href="about.html">About</a>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <a href="mailto:contact@luxtremousproperty.com">contact@luxtremousproperty.com</a>
+        <a href="tel:+14074369503">+1 (407) 436-9503</a>
+        <p>By appointment</p>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Luxtremous Property LLC</span>
+      <span>All rights reserved</span>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+(function () {
+  var tabs = document.querySelectorAll('.auth-tab');
+  var panels = { signin: document.getElementById('panel-signin'), create: document.getElementById('panel-create') };
+
+  function activate(name) {
+    tabs.forEach(function (t) { t.classList.toggle('active', t.dataset.tab === name); });
+    Object.keys(panels).forEach(function (k) { panels[k].classList.toggle('active', k === name); });
+  }
+
+  tabs.forEach(function (t) { t.addEventListener('click', function () { activate(t.dataset.tab); }); });
+  document.querySelectorAll('[data-switch]').forEach(function (l) {
+    l.addEventListener('click', function (e) { e.preventDefault(); activate(l.dataset.switch); });
+  });
+
+  document.querySelectorAll('.pw-toggle').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var input = document.getElementById(btn.dataset.target);
+      var showing = input.type === 'text';
+      input.type = showing ? 'password' : 'text';
+      btn.textContent = showing ? 'Show' : 'Hide';
+    });
+  });
+
+  function showMsg(text) {
+    var msg = document.getElementById('form-msg');
+    msg.textContent = text;
+    msg.classList.add('show');
+  }
+
+  function goToProfile(candidate) {
+    localStorage.setItem('lux_candidate', JSON.stringify(candidate));
+    window.location.href = 'candidate-profile.html';
+  }
+
+  document.getElementById('signin-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var email = document.getElementById('si-email').value.trim();
+    var existingRaw = localStorage.getItem('lux_candidate');
+    var existing = existingRaw ? JSON.parse(existingRaw) : null;
+    var candidate = (existing && existing.email && existing.email.toLowerCase() === email.toLowerCase())
+      ? existing
+      : { email: email, firstName: '', lastName: '', phone: '' };
+    showMsg('Signed in successfully. Redirecting to your profile…');
+    setTimeout(function () { goToProfile(candidate); }, 500);
+  });
+
+  document.getElementById('create-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var candidate = {
+      email: document.getElementById('ca-email').value.trim(),
+      firstName: document.getElementById('ca-first').value.trim(),
+      lastName: document.getElementById('ca-last').value.trim(),
+      phone: document.getElementById('ca-phone').value.trim()
+    };
+    showMsg('Account created. Redirecting to your profile…');
+    setTimeout(function () { goToProfile(candidate); }, 500);
+  });
+})();
+</script>
+</body>
+</html>

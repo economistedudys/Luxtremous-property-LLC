@@ -29,4 +29,16 @@ document.addEventListener('DOMContentLoaded', function () {
   } else {
     reveals.forEach(function (el) { el.classList.add('in'); });
   }
+
+  // ---- Candidate-portal aware nav link ----
+  try {
+    var loggedIn = !!localStorage.getItem('lux_candidate');
+    document.querySelectorAll('.nav-login').forEach(function (el) {
+      if (loggedIn) {
+        el.setAttribute('href', 'candidate-profile.html');
+        var span = el.querySelector('span');
+        if (span) { span.textContent = 'My Profile'; } else { el.textContent = 'My Profile'; }
+      }
+    });
+  } catch (e) { /* localStorage unavailable */ }
 });
